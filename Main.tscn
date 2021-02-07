@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Wire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+
+[node name="Main" type="Node"]
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Wires" type="Node2D" parent="Game"]
+
+[node name="Wire" parent="Game/Wires" instance=ExtResource( 2 )]
+points = PoolVector2Array( 128, 208, 384, 208 )
+
+[node name="Wire6" parent="Game/Wires" instance=ExtResource( 2 )]
+points = PoolVector2Array( 584, 128, 784, 128 )
+
+[node name="Wire5" parent="Game/Wires" instance=ExtResource( 2 )]
+points = PoolVector2Array( 208, 312, 480, 312, 576, 264 )
+
+[node name="Wire3" parent="Game/Wires" instance=ExtResource( 2 )]
+points = PoolVector2Array( 192, 488, 440, 384 )
+
+[node name="Wire2" parent="Game/Wires" instance=ExtResource( 2 )]
+points = PoolVector2Array( 504, 376, 776, 408, 848, 336, 952, 288, 1168, 296 )
+
+[node name="Wire4" parent="Game/Wires" instance=ExtResource( 2 )]
+points = PoolVector2Array( 168, 704, 232, 736, 464, 720, 560, 760, 1112, 744 )
+
+[node name="Walls" type="StaticBody2D" parent="Game" groups=[
+"wall",
+]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Walls"]
+polygon = PoolVector2Array( 112, 488, 112, 688, 32, 736, 96, 488 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Game/Walls"]
+polygon = PoolVector2Array( 904, 536, 904, 728, 920, 728, 920, 536 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Game/Walls"]
+polygon = PoolVector2Array( 144, 104, 144, 240, 104, 240, 104, 104 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Game/Walls"]
+polygon = PoolVector2Array( 368, 128, 368, 224, 400, 224, 400, 128 )
+
+[node name="EnergyWalls" type="StaticBody2D" parent="Game" groups=[
+"energy_wall",
+]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Game/EnergyWalls"]
+polygon = PoolVector2Array( 976, 144, 976, 336, 1080, 352, 1208, 136 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Game/EnergyWalls"]
+polygon = PoolVector2Array( 592, 136, 592, 288, 616, 288, 616, 136 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Game/EnergyWalls"]
+polygon = PoolVector2Array( 504, 208, 472, 208, 480, 64, 504, 64 )
+
+[node name="Player" parent="Game" instance=ExtResource( 1 )]
+position = Vector2( 232, 88 )
+rotation = -0.00471695
+
+[node name="Polygon2D" type="Polygon2D" parent="Game"]
+visible = false
+polygon = PoolVector2Array( 976, 144, 976, 336, 1080, 352, 1208, 136 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Game"]
+visible = false
+polygon = PoolVector2Array( 96, 488, 112, 488, 112, 688, 32, 736 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="Game"]
+visible = false
+polygon = PoolVector2Array( 904, 536, 904, 728, 920, 728, 920, 536 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
