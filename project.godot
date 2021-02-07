@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Path2D",
 "class": "Wire",
 "language": "GDScript",
-"path": "res://Wire.gd"
+"path": "res://wire.gd"
 } ]
 _global_script_class_icons={
 "Wire": ""
@@ -121,6 +121,8 @@ player_dash={
 2d_physics/layer_3="wires"
 2d_render/layer_4="energy_walls"
 2d_physics/layer_4="energy_walls"
+2d_render/layer_5="items"
+2d_physics/layer_5="items"
 
 [rendering]
 
